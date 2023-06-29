@@ -39,7 +39,7 @@ RUN apt-get update \
   && apt-get purge --auto-remove \
   && rm -rf /tmp/* /var/lib/apt/lists/*
 
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get update && apt-get install -y --no-install-recommends nodejs \
     && apt-get purge --auto-remove \
     && rm -rf /tmp/* /var/lib/apt/lists/*
@@ -47,7 +47,7 @@ RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
 WORKDIR /wechaty
 
 COPY package.json .
-RUN  npm install --force \
+RUN  npm install \
   && rm -fr /tmp/* ~/.npm
 
 COPY . .
