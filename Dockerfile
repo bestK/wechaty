@@ -47,7 +47,8 @@ RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
 WORKDIR /wechaty
 
 COPY package.json .
-RUN  npm install \
+RUN  npm install -g npm@9.7.2 \
+  && npm install \
   && rm -fr /tmp/* ~/.npm
 
 COPY . .
