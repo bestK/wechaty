@@ -54,8 +54,8 @@ COPY . .
 
 # RUN ./scripts/generate-package-json.sh && rm -f src/package-json.spec.ts
 # RUN  npm test \
-  && npm run dist \
-  && npm link
+  # && npm run dist \
+  # && npm link
 
 # Pre-install all puppets.
 # Must be placed after `npm link`, or it will be all deleted by `npm link`
