@@ -42,13 +42,12 @@ RUN apt-get update \
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get update && apt-get install -y --no-install-recommends nodejs \
     && apt-get purge --auto-remove \
-    && rm -rf /tmp/* /var/lib/apt/lists/* \
-    && npm install -g npm@9.7.2
+    && rm -rf /tmp/* /var/lib/apt/lists/*
 
 WORKDIR /wechaty
 
 COPY package.json .
-RUN  npm install \
+RUN  npm install -g npm@9.7.2 && npm install \
   && rm -fr /tmp/* ~/.npm
 
 COPY . .
